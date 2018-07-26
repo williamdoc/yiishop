@@ -31,8 +31,10 @@ class UploadController extends BaseController
 
         //todo 上传图片业务逻辑
         $ret = UploadService::uploadByFile($file_name,$_FILES['pic']['tmp_name'],$bucket);
-
-        return "<script>{$callback}.success('上传成功')</script>";
+        if (!$ret) {
+            return "<script>{$callback}.error('".UploadService::getLastErrorMsg()."')</script>";
+        }
+        return "<script>{$callback}.success('{$ret['path']}')</script>";
     }
 
 }

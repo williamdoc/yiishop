@@ -1,14 +1,13 @@
 <?php
-
 return [
     "domain" => [
-        'www' => 'yiishop.com',
-        'm' => 'yiishop.com/m',
-        'web' => 'yiishop.com/web'
+        'www' => 'http://yiishop.com',
+        'm' => 'http://yiishop.com/m',
+        'web' => 'http://yiishop.com/web'
     ],
     "upload" => [
         "avatar" => "/uploads/avatar",
-        "brand" => "/uploads/brand/",
-        "book" => "/uploads/book/"
+        "brand" => "/uploads/brand",
+        "book" => "/uploads/book"
     ]
 ];

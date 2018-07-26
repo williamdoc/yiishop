@@ -36,9 +36,17 @@ class UploadService extends BaseService
 
         $upload_full_name = $folder_name."/".$hash_key.".{$file_type}";
         if (is_uploaded_file($file_path)) {//判断文件是否是通过 HTTP POST 上传的
-            move_uploaded_file()
+            move_uploaded_file($file_path,$upload_dir_path.$upload_full_name);
 
+        } else {
+            file_put_contents($upload_dir_path.$upload_full_name,file_get_contents($file_path));
         }
+
+        return [
+            'code' => 200,
+            'path' => $upload_full_name,
+            'prefix' => $upload_config[$bucket]."/"
+        ];
     }
 
 }
